@@ -1,0 +1,487 @@
+[
+    {
+        "id": "ab127697727f4707",
+        "type": "tab",
+        "label": "Team 8",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9621722166660aad",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e597eb241d16a92a",
+        "type": "mqtt out",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/start",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b43680920fc55232",
+        "x": 630,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4bf9b1303935f07c",
+        "type": "mqtt in",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b43680920fc55232",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 890,
+        "y": 280,
+        "wires": [
+            [
+                "66e5611ec74c6326",
+                "5d5a84b11603dec7"
+            ]
+        ]
+    },
+    {
+        "id": "b38860f6e59cc6a0",
+        "type": "mqtt in",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b43680920fc55232",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 880,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e313456d972904d7",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "e597eb241d16a92a",
+                "a017f60bd30202f6"
+            ]
+        ]
+    },
+    {
+        "id": "a44bfabee078f3bf",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "stop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "0 0-22 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "e597eb241d16a92a",
+                "a017f60bd30202f6"
+            ]
+        ]
+    },
+    {
+        "id": "557db691d2f46077",
+        "type": "eth-ip in",
+        "z": "ab127697727f4707",
+        "endpoint": "a5dbbde2292bcf49",
+        "mode": "single",
+        "variable": "Group8SystemOut",
+        "program": "",
+        "name": "",
+        "x": 910,
+        "y": 520,
+        "wires": [
+            [
+                "09803e5d17b3f69f"
+            ]
+        ]
+    },
+    {
+        "id": "a017f60bd30202f6",
+        "type": "eth-ip out",
+        "z": "ab127697727f4707",
+        "endpoint": "a5dbbde2292bcf49",
+        "variable": "Group8Start",
+        "program": "",
+        "name": "PLCStart",
+        "x": 660,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "45c1ae5fe4afe985",
+        "type": "eth-ip out",
+        "z": "ab127697727f4707",
+        "endpoint": "fb9a6153904373fe",
+        "variable": "WLeadG8",
+        "program": "",
+        "name": "",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1976dcb54bd30d1c",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "WLeadG8",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "45c1ae5fe4afe985"
+            ]
+        ]
+    },
+    {
+        "id": "63479bfe3f8fb4ea",
+        "type": "eth-ip out",
+        "z": "ab127697727f4707",
+        "endpoint": "a5dbbde2292bcf49",
+        "variable": "WLagG8",
+        "program": "",
+        "name": "WLagG8",
+        "x": 660,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "6d0aed86a35f5476",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "WLagG8",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "63479bfe3f8fb4ea"
+            ]
+        ]
+    },
+    {
+        "id": "20542ce8c6114814",
+        "type": "eth-ip out",
+        "z": "ab127697727f4707",
+        "endpoint": "a5dbbde2292bcf49",
+        "variable": "ZetaLeadG8",
+        "program": "",
+        "name": "ZetaLeadG8",
+        "x": 670,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6802a7bfcf6964aa",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "ZetaLeadG8",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "20542ce8c6114814"
+            ]
+        ]
+    },
+    {
+        "id": "175a4a2fc726ac4c",
+        "type": "eth-ip out",
+        "z": "ab127697727f4707",
+        "endpoint": "a5dbbde2292bcf49",
+        "variable": "ZetaLagG8",
+        "program": "",
+        "name": "ZetaLagG8",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f252c3285d8a2a47",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "ZetaLagG8",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "175a4a2fc726ac4c"
+            ]
+        ]
+    },
+    {
+        "id": "66e5611ec74c6326",
+        "type": "eth-ip out",
+        "z": "ab127697727f4707",
+        "endpoint": "a5dbbde2292bcf49",
+        "variable": "Group8Reference",
+        "program": "",
+        "name": "Group8Reference",
+        "x": 1170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5d5a84b11603dec7",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "09803e5d17b3f69f",
+        "type": "mqtt out",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/SystemOut",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "21cdba4a.be7146",
+        "x": 1210,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b43680920fc55232",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "160.75.154.100",
+        "port": "1884",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a5dbbde2292bcf49",
+        "type": "eth-ip endpoint",
+        "z": "ab127697727f4707",
+        "address": "172.16.2.171",
+        "slot": "0",
+        "cycletime": "500",
+        "name": "Group8PLC",
+        "vartable": {
+            "": {
+                "Group8SystemOut": {
+                    "type": "REAL"
+                },
+                "Group8Start": {
+                    "type": "BOOL"
+                },
+                "WLeadG8": {
+                    "type": "REAL"
+                },
+                "WLagG8": {
+                    "type": "REAL"
+                },
+                "ZetaLeadG8": {
+                    "type": "REAL"
+                },
+                "ZetaLagG8": {
+                    "type": "REAL"
+                },
+                "Group8Reference": {
+                    "type": "REAL"
+                }
+            }
+        }
+    },
+    {
+        "id": "fb9a6153904373fe",
+        "type": "eth-ip endpoint",
+        "address": "172.16.2.171",
+        "slot": "0",
+        "cycletime": "500",
+        "name": "",
+        "vartable": {
+            "": {
+                "Group8SystemOut": {
+                    "type": "REAL"
+                },
+                "Group8Start": {
+                    "type": "BOOL"
+                },
+                "WLeadG8": {
+                    "type": "REAL"
+                },
+                "WLagG8": {
+                    "type": "REAL"
+                },
+                "ZetaLeadG8": {
+                    "type": "REAL"
+                },
+                "ZetaLagG8": {
+                    "type": "REAL"
+                },
+                "Group8Reference": {
+                    "type": "REAL"
+                }
+            }
+        }
+    },
+    {
+        "id": "21cdba4a.be7146",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "160.75.154.100",
+        "port": "1884",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
