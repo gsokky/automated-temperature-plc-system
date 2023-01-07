@@ -1,21 +1,29 @@
 #include <WiFi.h>
-
 const char* ssid     = "Redmi";
 const char* password = "gnrn5080";
 
+char * DHTtemp;
+char * sysout;
+
+double DHTtempNumb;
+double sysoutNumb;
+
 uint8_t buffer[50];
 
-// Set your Static IP address
-IPAddress local_IP(192, 168, 43, 185);
-// Set your Gateway IP address
-IPAddress gateway(192, 168, 43, 1);
+// LED Pin
+const int ledPin = 4;
+
+
+IPAddress local_IP(192, 168, 137, 185);
+IPAddress gateway(192, 168, 137, 1);
 
 IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(8, 8, 8, 8);   //optional
 IPAddress secondaryDNS(8, 8, 4, 4); //optional
 
-const char * udpAddress = "192.168.43.184";
+const char * udpAddress = "192.168.137.184";
 const int udpPort = 44444;
+
 //create UDP instance
 WiFiUDP udp;
 
@@ -47,11 +55,32 @@ void setup() {
 
 void loop(){
   memset(buffer, 0, 50);
-  //processing incoming packet, must be called before reading the buffer
+  
   udp.parsePacket();
-  //receive response from server, it will be HELLO WORLD
-  if(udp.read(buffer, 50) > 0){
-    Serial.println((char *)buffer);
+  if(udp.read(buffer, 16) > 0)
+  {
+    char * header;
+    char * msg;
+    
+    header = strtok((char*)buffer, ":");
+    msg = strtok(NULL, ":");
+    
+//    Serial.print((char *)header);
+//    Serial.print(" ");
+//    Serial.println((char *)msg);
+    
+    if(!strcmp("DHTtemp",header))
+    {
+      DHTtemp = strdup(msg);
+      DHTtempNumb = strtod(DHTtemp,NULL);
+    }
+    else if(!strcmp("symsout",header))
+    {
+      sysout = strdup(msg);
+      sysoutNumb = strtod(sysout,NULL);
+    } 
+
+    
   }
   //Wait for 1 second
 
