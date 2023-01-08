@@ -11,8 +11,11 @@ double sysoutNumb;
 uint8_t buffer[50];
 
 // LED Pin
-const int ledPin = 4;
+const int ledPin1 = 16;
+const int ledPin2 = 17;
 
+bool isWorking = 0;
+long timer = 0;
 
 IPAddress local_IP(192, 168, 137, 185);
 IPAddress gateway(192, 168, 137, 1);
@@ -28,8 +31,12 @@ const int udpPort = 44444;
 WiFiUDP udp;
 
 void setup() {
+  
   Serial.begin(115200);
 
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  
   // Configures static IP address
   if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
     Serial.println("STA Failed to configure");
@@ -59,15 +66,18 @@ void loop(){
   udp.parsePacket();
   if(udp.read(buffer, 16) > 0)
   {
+    isWorking = 1;
+    timer = millis();
+    
     char * header;
     char * msg;
     
     header = strtok((char*)buffer, ":");
     msg = strtok(NULL, ":");
     
-//    Serial.print((char *)header);
-//    Serial.print(" ");
-//    Serial.println((char *)msg);
+    Serial.print((char *)header);
+    Serial.print(" ");
+    Serial.println((char *)msg);
     
     if(!strcmp("DHTtemp",header))
     {
@@ -79,8 +89,26 @@ void loop(){
       sysout = strdup(msg);
       sysoutNumb = strtod(sysout,NULL);
     } 
+  }
 
-    
+  if(isWorking)
+  {
+    if(abs(millis() - timer) > 5000)
+      isWorking = 0;
+    else
+    {
+      if(sysoutNumb > DHTtempNumb)
+        digitalWrite(ledPin2, HIGH);
+      else
+        digitalWrite(ledPin2, LOW);
+        
+      digitalWrite(ledPin1, HIGH);
+    }
+  } 
+  else
+  {
+     digitalWrite(ledPin1, LOW);
+     digitalWrite(ledPin2, LOW);
   }
   //Wait for 1 second
 
