@@ -154,11 +154,11 @@ void setup_wifi() {
 
 void callback(char* topic, byte* message, unsigned int length) {
   String messageTemp = "";
-  Serial.print("Message arrived on topic: ");
-  Serial.print(topic);
-  Serial.print(". Message: ");
+//  Serial.print("Message arrived on topic: ");
+//  Serial.print(topic);
+//  Serial.print(". Message: ");
   for (int i = 0; i < length; i++) {
-    Serial.print((char)message[i]);
+//    Serial.print((char)message[i]);
     messageTemp += (char)message[i];
   }
   Serial.println();

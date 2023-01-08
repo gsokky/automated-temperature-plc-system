@@ -8,23 +8,6 @@
         "env": []
     },
     {
-        "id": "9621722166660aad",
-        "type": "debug",
-        "z": "ab127697727f4707",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "e597eb241d16a92a",
         "type": "mqtt out",
         "z": "ab127697727f4707",
@@ -38,7 +21,7 @@
         "correl": "",
         "expiry": "",
         "broker": "b43680920fc55232",
-        "x": 630,
+        "x": 950,
         "y": 120,
         "wires": []
     },
@@ -55,12 +38,11 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 890,
-        "y": 280,
+        "x": 1170,
+        "y": 120,
         "wires": [
             [
-                "66e5611ec74c6326",
-                "5d5a84b11603dec7"
+                "66e5611ec74c6326"
             ]
         ]
     },
@@ -77,66 +59,10 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 880,
-        "y": 340,
+        "x": 1160,
+        "y": 180,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "e313456d972904d7",
-        "type": "inject",
-        "z": "ab127697727f4707",
-        "name": "start",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 350,
-        "y": 120,
-        "wires": [
-            [
-                "e597eb241d16a92a",
-                "a017f60bd30202f6"
-            ]
-        ]
-    },
-    {
-        "id": "a44bfabee078f3bf",
-        "type": "inject",
-        "z": "ab127697727f4707",
-        "name": "stop",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "0 0-22 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 350,
-        "y": 200,
-        "wires": [
-            [
-                "e597eb241d16a92a",
-                "a017f60bd30202f6"
-            ]
         ]
     },
     {
@@ -148,8 +74,8 @@
         "variable": "Group8SystemOut",
         "program": "",
         "name": "",
-        "x": 910,
-        "y": 520,
+        "x": 1170,
+        "y": 500,
         "wires": [
             [
                 "09803e5d17b3f69f"
@@ -164,7 +90,7 @@
         "variable": "Group8Start",
         "program": "",
         "name": "PLCStart",
-        "x": 660,
+        "x": 940,
         "y": 200,
         "wires": []
     },
@@ -176,7 +102,7 @@
         "variable": "WLeadG8",
         "program": "",
         "name": "",
-        "x": 660,
+        "x": 960,
         "y": 320,
         "wires": []
     },
@@ -197,7 +123,7 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 340,
+        "x": 640,
         "y": 320,
         "wires": [
             [
@@ -213,7 +139,7 @@
         "variable": "WLagG8",
         "program": "",
         "name": "WLagG8",
-        "x": 660,
+        "x": 960,
         "y": 380,
         "wires": []
     },
@@ -234,7 +160,7 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 340,
+        "x": 640,
         "y": 380,
         "wires": [
             [
@@ -250,7 +176,7 @@
         "variable": "ZetaLeadG8",
         "program": "",
         "name": "ZetaLeadG8",
-        "x": 670,
+        "x": 970,
         "y": 440,
         "wires": []
     },
@@ -271,7 +197,7 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 350,
+        "x": 650,
         "y": 440,
         "wires": [
             [
@@ -287,7 +213,7 @@
         "variable": "ZetaLagG8",
         "program": "",
         "name": "ZetaLagG8",
-        "x": 670,
+        "x": 970,
         "y": 500,
         "wires": []
     },
@@ -308,7 +234,7 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 340,
+        "x": 640,
         "y": 500,
         "wires": [
             [
@@ -324,25 +250,8 @@
         "variable": "Group8Reference",
         "program": "",
         "name": "Group8Reference",
-        "x": 1170,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "5d5a84b11603dec7",
-        "type": "debug",
-        "z": "ab127697727f4707",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 360,
+        "x": 1770,
+        "y": 120,
         "wires": []
     },
     {
@@ -359,8 +268,285 @@
         "correl": "",
         "expiry": "",
         "broker": "21cdba4a.be7146",
-        "x": 1210,
-        "y": 540,
+        "x": 1490,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5d5a84b11603dec7",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "Ts error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "jsonata",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1760,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7fb0dd76756017c5",
+        "type": "function",
+        "z": "ab127697727f4707",
+        "name": "timestamp creater",
+        "func": "msg.payload = new Date();\nmsg.payload = msg.payload.getTime();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 320,
+        "wires": [
+            [
+                "965558a90510cd63"
+            ]
+        ]
+    },
+    {
+        "id": "965558a90510cd63",
+        "type": "mqtt out",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/tsgo",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "21cdba4a.be7146",
+        "x": 1770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6909ba0ed33abc2e",
+        "type": "mqtt in",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/tscome",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b43680920fc55232",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1160,
+        "y": 240,
+        "wires": [
+            [
+                "2d2b81efb4fb17f1"
+            ]
+        ]
+    },
+    {
+        "id": "29f098b5ac6352ce",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "send timestamp",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 1180,
+        "y": 320,
+        "wires": [
+            [
+                "7fb0dd76756017c5"
+            ]
+        ]
+    },
+    {
+        "id": "2d2b81efb4fb17f1",
+        "type": "function",
+        "z": "ab127697727f4707",
+        "name": "compare ts",
+        "func": "now = new Date();\n\nmsg.payload = now.getTime() - msg.payload;\n \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1430,
+        "y": 240,
+        "wires": [
+            [
+                "5d5a84b11603dec7"
+            ]
+        ]
+    },
+    {
+        "id": "761e35b2c83a0bd9",
+        "type": "mqtt in",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/start_system",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b43680920fc55232",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "83a6dc0483a075e9",
+                "3cd559a44e230cd0"
+            ]
+        ]
+    },
+    {
+        "id": "22f0c853e0c1822a",
+        "type": "function",
+        "z": "ab127697727f4707",
+        "name": "function 1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1480,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75b6d8c86588cc22",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "temperature",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "jsonata",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1750,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3cd559a44e230cd0",
+        "type": "ui_switch",
+        "z": "ab127697727f4707",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "aad8a7679b60dc3d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "payload",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "e597eb241d16a92a",
+                "a017f60bd30202f6"
+            ]
+        ]
+    },
+    {
+        "id": "856cbed793adb591",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "stop",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "0 0-22 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "3cd559a44e230cd0"
+            ]
+        ]
+    },
+    {
+        "id": "0cb1110a3980c561",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 450,
+        "y": 80,
+        "wires": [
+            [
+                "3cd559a44e230cd0"
+            ]
+        ]
+    },
+    {
+        "id": "83a6dc0483a075e9",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "start",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 80,
         "wires": []
     },
     {
@@ -483,5 +669,25 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "aad8a7679b60dc3d",
+        "type": "ui_group",
+        "name": "TEAM 5",
+        "tab": "446ced7dd7f5d29f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "446ced7dd7f5d29f",
+        "type": "ui_tab",
+        "name": "TEAM 5",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
     }
 ]
