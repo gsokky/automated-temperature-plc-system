@@ -2,6 +2,7 @@
 #include <PubSubClient.h>
 #include <Wire.h>
 #include <DHT.h>
+#include <ArduinoJson.h>
 
 #define DHTPIN  2     // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT11
@@ -32,14 +33,14 @@ long lastMsg = 0;
 
 String startSystem = "false";
 String sysOut;
+String tsgo;
 
 bool sendSysTempFlag = 0;
+bool tsFlag = 0;
 
 float temperature = 0;
 float humidity = 0;
 
-// LED Pin
-const int ledPin = 4;
 
 void reconnect() ;
 void setup_wifi();
@@ -57,7 +58,6 @@ void setup() {
   client.setServer(mqtt_server, 1884);
   client.setCallback(callback);
 
-  pinMode(ledPin, OUTPUT);
   
 }
 
@@ -66,6 +66,12 @@ void loop() {
     reconnect();
     
   client.loop();
+  if(tsFlag == 1)
+  {
+    tsFlag = 0;
+    client.publish("group8/tscome", tsgo.c_str());
+  }
+  
   if(startSystem=="true")
   {
     long now = millis();
@@ -91,7 +97,6 @@ void loop() {
         Serial.println("Failed to read from DHT sensor!");
       else
       {
-        // Convert the value to a char array
         char humString[8];
         dtostrf(humidity, 2, 2, humString);
 //        Serial.print("Humidity: ");
@@ -104,6 +109,7 @@ void loop() {
         send_udp("symsout:",sysOut,udpPort,(char *)udpAddress);
       }
     }
+    
   }
 }
 void send_udp(String header,String msg,int port,char * sendAddress)
@@ -148,9 +154,9 @@ void setup_wifi() {
 
 void callback(char* topic, byte* message, unsigned int length) {
   String messageTemp = "";
-//  Serial.print("Message arrived on topic: ");
-//  Serial.print(topic);
-//  Serial.print(". Message: ");
+  Serial.print("Message arrived on topic: ");
+  Serial.print(topic);
+  Serial.print(". Message: ");
   for (int i = 0; i < length; i++) {
     Serial.print((char)message[i]);
     messageTemp += (char)message[i];
@@ -163,8 +169,12 @@ void callback(char* topic, byte* message, unsigned int length) {
   if (String(topic) == "group8/SystemOut") {
     sendSysTempFlag = 1;
     sysOut = messageTemp;
+  }
+  if (String(topic) == "group8/tsgo") {
+    tsFlag = 1;
+    tsgo = messageTemp;
     
-  }  
+  }
 }
 
 void reconnect() 
@@ -176,6 +186,7 @@ void reconnect()
       Serial.println("connected");
       client.subscribe("group8/start");
       client.subscribe("group8/SystemOut");
+      client.subscribe("group8/tsgo");
       
     } else {
       Serial.print("failed, rc=");
