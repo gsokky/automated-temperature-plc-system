@@ -3,15 +3,26 @@ import paho.mqtt.publish as publish
 import os
 import time
 import tkinter as tk
+from datetime import datetime  
 
 
 
 class mqtt_server():
     def __init__(self,root) :   
         
-        SERVER_IP_ADDRESS = "160.75.154.100"
+        self.SERVER_IP_ADDRESS = "160.75.154.100"
+        self.SERVER_PORT = 1884
         self.root = root
         self.auto_scroll = 0
+
+        self.topics = {
+            "group8/start" : 1,
+            "group8/temperature" : 0,
+            "group8/SystemOut" : 1,
+            "group8/tsgo" : 0,
+            "group8/tserror" : 0,
+           
+        }
 
         self.client = mqtt.Client("mqtt_test")
         
@@ -19,10 +30,16 @@ class mqtt_server():
         self.client.on_message = self.on_message
 
         self.client.username_pw_set("iturockwell", "963258741")
+        self.connect()
         
-        self.client.connect(SERVER_IP_ADDRESS, 1884)
 
-        
+    
+    def connect(self):
+        self.client.connect(self.SERVER_IP_ADDRESS, self.SERVER_PORT)
+
+    def disconnect(self):
+        self.client.disconnect()
+
 
     def loop_start(self):
         self.client.loop_start()
@@ -33,18 +50,23 @@ class mqtt_server():
     def on_connect(self,client, userdata, flags, rc):
         print("Connected with result code "+str(rc))
 
-        self.client.subscribe("group8/temperature")
-        self.client.subscribe("group8/SystemOut")
-        self.client.subscribe("group8/tsgo")
-        self.client.subscribe("group8/start")
+        for key,i in self.topics.items():
+            if(i == 1):
+                self.client.subscribe(key)
 
+            
     def on_message(self,client, userdata, msg):
         payload = str(msg.payload.decode("UTF-8"))
         topic = msg.topic
-        t = "Topic: {} / Message: {}\n".format(topic,payload)
+        time_stamp = time.time()
+        date_time = datetime.fromtimestamp(time_stamp)
+        str_date_time = date_time.strftime("%d.%m.%Y %H:%M:%S.%f")
+
+        t = "{} | {} | {}\n".format(str_date_time,topic,payload)
         self.root.text.insert(tk.END,t)
         if(self.auto_scroll):
             self.root.text.see(tk.END)
+        
 
         if(topic == "group8/start"):
             if(payload == "false"):

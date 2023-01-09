@@ -1,4 +1,4 @@
 noderedde 60 dk de 15 dk gönderme
 dashboard
-plc controllör ile çalışmıyor hocaya mail
+
 
