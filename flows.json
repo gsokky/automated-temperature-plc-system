@@ -21,8 +21,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b43680920fc55232",
-        "x": 970,
-        "y": 120,
+        "x": 1090,
+        "y": 240,
         "wires": []
     },
     {
@@ -38,12 +38,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1170,
-        "y": 120,
+        "x": 1290,
+        "y": 200,
         "wires": [
             [
                 "66e5611ec74c6326",
-                "75b6d8c86588cc22"
+                "75b6d8c86588cc22",
+                "34c32b70312a7194"
             ]
         ]
     },
@@ -60,8 +61,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1160,
-        "y": 180,
+        "x": 1280,
+        "y": 300,
         "wires": [
             []
         ]
@@ -75,12 +76,13 @@
         "variable": "Group8SystemOut",
         "program": "",
         "name": "",
-        "x": 1170,
-        "y": 500,
+        "x": 1290,
+        "y": 620,
         "wires": [
             [
                 "09803e5d17b3f69f",
-                "7fb0dd76756017c5"
+                "7fb0dd76756017c5",
+                "3ef0c1907bf5ed8c"
             ]
         ]
     },
@@ -92,8 +94,8 @@
         "variable": "Group8Start",
         "program": "",
         "name": "PLCStart",
-        "x": 960,
-        "y": 200,
+        "x": 1080,
+        "y": 320,
         "wires": []
     },
     {
@@ -104,8 +106,8 @@
         "variable": "WLeadG8",
         "program": "",
         "name": "",
-        "x": 960,
-        "y": 320,
+        "x": 1080,
+        "y": 440,
         "wires": []
     },
     {
@@ -125,8 +127,8 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 680,
-        "y": 320,
+        "x": 820,
+        "y": 440,
         "wires": [
             [
                 "45c1ae5fe4afe985"
@@ -141,8 +143,8 @@
         "variable": "WLagG8",
         "program": "",
         "name": "WLagG8",
-        "x": 960,
-        "y": 380,
+        "x": 1080,
+        "y": 500,
         "wires": []
     },
     {
@@ -162,8 +164,8 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 680,
-        "y": 380,
+        "x": 820,
+        "y": 500,
         "wires": [
             [
                 "63479bfe3f8fb4ea"
@@ -178,8 +180,8 @@
         "variable": "ZetaLeadG8",
         "program": "",
         "name": "ZetaLeadG8",
-        "x": 970,
-        "y": 440,
+        "x": 1090,
+        "y": 560,
         "wires": []
     },
     {
@@ -199,8 +201,8 @@
         "topic": "",
         "payload": "0.29",
         "payloadType": "num",
-        "x": 690,
-        "y": 440,
+        "x": 830,
+        "y": 560,
         "wires": [
             [
                 "20542ce8c6114814"
@@ -215,8 +217,8 @@
         "variable": "ZetaLagG8",
         "program": "",
         "name": "ZetaLagG8",
-        "x": 970,
-        "y": 500,
+        "x": 1090,
+        "y": 620,
         "wires": []
     },
     {
@@ -236,8 +238,8 @@
         "topic": "",
         "payload": "0.53",
         "payloadType": "num",
-        "x": 680,
-        "y": 500,
+        "x": 820,
+        "y": 620,
         "wires": [
             [
                 "175a4a2fc726ac4c"
@@ -252,8 +254,8 @@
         "variable": "Group8Reference",
         "program": "",
         "name": "Group8Reference",
-        "x": 1410,
-        "y": 120,
+        "x": 1530,
+        "y": 260,
         "wires": []
     },
     {
@@ -270,8 +272,8 @@
         "correl": "",
         "expiry": "",
         "broker": "21cdba4a.be7146",
-        "x": 1410,
-        "y": 500,
+        "x": 1530,
+        "y": 620,
         "wires": []
     },
     {
@@ -285,8 +287,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 320,
+        "x": 1530,
+        "y": 440,
         "wires": [
             [
                 "965558a90510cd63"
@@ -307,8 +309,8 @@
         "correl": "",
         "expiry": "",
         "broker": "21cdba4a.be7146",
-        "x": 1650,
-        "y": 320,
+        "x": 1770,
+        "y": 440,
         "wires": []
     },
     {
@@ -324,8 +326,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1160,
-        "y": 240,
+        "x": 1280,
+        "y": 360,
         "wires": [
             [
                 "2d2b81efb4fb17f1"
@@ -349,8 +351,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 1180,
-        "y": 320,
+        "x": 1300,
+        "y": 440,
         "wires": [
             [
                 "7fb0dd76756017c5"
@@ -362,18 +364,19 @@
         "type": "function",
         "z": "ab127697727f4707",
         "name": "compare ts",
-        "func": "now = new Date();\n\nmsg.payload = now.getTime() - msg.payload;\n \nreturn msg;",
+        "func": "now = new Date();\n\nmsg.payload = (now.getTime() - msg.payload);\n \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1390,
-        "y": 240,
+        "x": 1510,
+        "y": 360,
         "wires": [
             [
                 "9c11ce9fa10784c9",
-                "5d5a84b11603dec7"
+                "5d5a84b11603dec7",
+                "7d19df9df82ff024"
             ]
         ]
     },
@@ -390,12 +393,11 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 390,
-        "y": 160,
+        "x": 470,
+        "y": 280,
         "wires": [
             [
-                "7873198b56215fc2",
-                "730318cef3d59ede"
+                "904a955c3621547f"
             ]
         ]
     },
@@ -412,8 +414,8 @@
         "targetType": "jsonata",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1390,
-        "y": 60,
+        "x": 1510,
+        "y": 200,
         "wires": []
     },
     {
@@ -433,12 +435,11 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 430,
-        "y": 240,
+        "x": 510,
+        "y": 360,
         "wires": [
             [
-                "7873198b56215fc2",
-                "730318cef3d59ede"
+                "904a955c3621547f"
             ]
         ]
     },
@@ -459,12 +460,11 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 430,
-        "y": 80,
+        "x": 510,
+        "y": 200,
         "wires": [
             [
-                "7873198b56215fc2",
-                "730318cef3d59ede"
+                "904a955c3621547f"
             ]
         ]
     },
@@ -481,8 +481,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 60,
+        "x": 1070,
+        "y": 180,
         "wires": []
     },
     {
@@ -499,8 +499,8 @@
         "correl": "",
         "expiry": "",
         "broker": "21cdba4a.be7146",
-        "x": 1660,
-        "y": 180,
+        "x": 1780,
+        "y": 300,
         "wires": []
     },
     {
@@ -516,8 +516,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1640,
-        "y": 240,
+        "x": 1760,
+        "y": 360,
         "wires": []
     },
     {
@@ -537,8 +537,8 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 670,
-        "y": 560,
+        "x": 810,
+        "y": 680,
         "wires": [
             [
                 "175a4a2fc726ac4c",
@@ -565,8 +565,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 680,
-        "y": 120,
+        "x": 820,
+        "y": 240,
         "wires": [
             [
                 "e597eb241d16a92a",
@@ -592,14 +592,307 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 680,
-        "y": 200,
+        "x": 820,
+        "y": 320,
         "wires": [
             [
                 "e597eb241d16a92a",
                 "a017f60bd30202f6",
                 "83a6dc0483a075e9"
             ]
+        ]
+    },
+    {
+        "id": "904a955c3621547f",
+        "type": "ui_switch",
+        "z": "ab127697727f4707",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "55f2025f337d58e6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "7873198b56215fc2",
+                "730318cef3d59ede"
+            ]
+        ]
+    },
+    {
+        "id": "09edc4dcd0642bd0",
+        "type": "ui_chart",
+        "z": "ab127697727f4707",
+        "name": "",
+        "group": "d1d90408aa3d72e9",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "label": "ts error mean",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2010,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d19df9df82ff024",
+        "type": "function",
+        "z": "ab127697727f4707",
+        "name": "mean1",
+        "func": "group8Count1 = flow.get(\"group8/count1\");\ngroup8Mean1 = flow.get(\"group8/mean1\");\ngroup8Recalculate1 = flow.get(\"group8/recalculate1\");\ngroup8Queue1 = flow.get(\"group8/queue1\");\nvar len = 100\n\nif(group8Recalculate1)\n{\n    group8Queue1 = [];\n    group8Count1 = 0;\n    group8Mean1 = 0;\n    group8Recalculate1 = 0;\n}\ngroup8Queue1.push(msg.payload);\n\nif(group8Count1 < len)\n{    \n    group8Mean1 = (group8Mean1*group8Count1 + msg.payload)/(group8Count1+1);\n    group8Count1 = group8Count1 + 1; \n    msg.payload = group8Mean1;\n} \nelse\n{\n    var removed_element = group8Queue1.shift();\n    \n    group8Mean1 = (group8Mean1*len + msg.payload - removed_element)/len\n    msg.payload = group8Mean1;\n}\n\n \n\n\nflow.set(\"group8/count1\",group8Count1);\nflow.set(\"group8/mean1\",group8Mean1);\nflow.set(\"group8/recalculate1\",group8Recalculate1);\nflow.set(\"group8/queue1\",group8Queue1);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ngroup8Count1 = flow.get(\"group8/count1\") || 0;\ngroup8Mean1 = flow.get(\"group8/mean1\") || 0;\ngroup8Recalculate1 = flow.get(\"group8/recalculate1\") || 0;\ngroup8Queue1 = flow.get(\"group8/queue1\") || [];\n\nflow.set(\"group8/count1\",0);\nflow.set(\"group8/mean1\",0);\nflow.set(\"group8/recalculate1\",0);\nflow.set(\"group8/queue1\",[]);\n\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1750,
+        "y": 220,
+        "wires": [
+            [
+                "09edc4dcd0642bd0",
+                "e266ff6a62452a56"
+            ]
+        ]
+    },
+    {
+        "id": "e266ff6a62452a56",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "mean1",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2000,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "082efcbd201773bf",
+        "type": "mqtt in",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/reset_mean1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b43680920fc55232",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1790,
+        "y": 160,
+        "wires": [
+            [
+                "9980516dc237e331"
+            ]
+        ]
+    },
+    {
+        "id": "9980516dc237e331",
+        "type": "function",
+        "z": "ab127697727f4707",
+        "name": "reset mean1",
+        "func": "flow.set(\"group8/count1\",0);\nflow.set(\"group8/mean1\",0);\nflow.set(\"group8/recalculate1\",0);\nflow.set(\"group8/queue1\",[]);\n\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2010,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a49d1e82d8ea3885",
+        "type": "ui_button",
+        "z": "ab127697727f4707",
+        "name": "",
+        "group": "d1d90408aa3d72e9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "reset mean1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1770,
+        "y": 100,
+        "wires": [
+            [
+                "9980516dc237e331"
+            ]
+        ]
+    },
+    {
+        "id": "4e18cd8a409aeb3f",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "reset mean1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 1790,
+        "y": 40,
+        "wires": [
+            [
+                "9980516dc237e331"
+            ]
+        ]
+    },
+    {
+        "id": "34c32b70312a7194",
+        "type": "ui_chart",
+        "z": "ab127697727f4707",
+        "name": "",
+        "group": "bbcdb05cdb3a0a4a",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "label": "temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1510,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ef0c1907bf5ed8c",
+        "type": "ui_chart",
+        "z": "ab127697727f4707",
+        "name": "",
+        "group": "82f9eea67c01dfe2",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "label": "System Out",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "100000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1510,
+        "y": 560,
+        "wires": [
+            []
         ]
     },
     {
@@ -722,5 +1015,57 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "55f2025f337d58e6",
+        "type": "ui_group",
+        "name": "team8/group1",
+        "tab": "84877518892f79d0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d1d90408aa3d72e9",
+        "type": "ui_group",
+        "name": "team8/group2",
+        "tab": "84877518892f79d0",
+        "order": 2,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bbcdb05cdb3a0a4a",
+        "type": "ui_group",
+        "name": "team8/group3",
+        "tab": "84877518892f79d0",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "82f9eea67c01dfe2",
+        "type": "ui_group",
+        "name": "team8/group4",
+        "tab": "84877518892f79d0",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "84877518892f79d0",
+        "type": "ui_tab",
+        "name": "team8/dashboard_tab",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
