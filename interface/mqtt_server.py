@@ -61,9 +61,10 @@ class mqtt_server():
         time_stamp = time.time()
         date_time = datetime.fromtimestamp(time_stamp)
         str_date_time = date_time.strftime("%d.%m.%Y %H:%M:%S.%f")
+        if(not (topic == "group8/start" and self.root.show_start.get() == 0)):
+            t = "{} | {} | {}\n".format(str_date_time,topic,payload)
+            self.root.text.insert(tk.END,t)
 
-        t = "{} | {} | {}\n".format(str_date_time,topic,payload)
-        self.root.text.insert(tk.END,t)
         if(self.auto_scroll):
             self.root.text.see(tk.END)
         

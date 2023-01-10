@@ -21,7 +21,7 @@
         "correl": "",
         "expiry": "",
         "broker": "b43680920fc55232",
-        "x": 950,
+        "x": 970,
         "y": 120,
         "wires": []
     },
@@ -42,7 +42,8 @@
         "y": 120,
         "wires": [
             [
-                "66e5611ec74c6326"
+                "66e5611ec74c6326",
+                "75b6d8c86588cc22"
             ]
         ]
     },
@@ -78,7 +79,8 @@
         "y": 500,
         "wires": [
             [
-                "09803e5d17b3f69f"
+                "09803e5d17b3f69f",
+                "7fb0dd76756017c5"
             ]
         ]
     },
@@ -90,7 +92,7 @@
         "variable": "Group8Start",
         "program": "",
         "name": "PLCStart",
-        "x": 940,
+        "x": 960,
         "y": 200,
         "wires": []
     },
@@ -123,7 +125,7 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 640,
+        "x": 680,
         "y": 320,
         "wires": [
             [
@@ -158,9 +160,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "0",
+        "payload": "1",
         "payloadType": "num",
-        "x": 640,
+        "x": 680,
         "y": 380,
         "wires": [
             [
@@ -195,9 +197,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "0",
+        "payload": "0.29",
         "payloadType": "num",
-        "x": 650,
+        "x": 690,
         "y": 440,
         "wires": [
             [
@@ -232,9 +234,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "0",
+        "payload": "0.53",
         "payloadType": "num",
-        "x": 640,
+        "x": 680,
         "y": 500,
         "wires": [
             [
@@ -250,7 +252,7 @@
         "variable": "Group8Reference",
         "program": "",
         "name": "Group8Reference",
-        "x": 1770,
+        "x": 1410,
         "y": 120,
         "wires": []
     },
@@ -268,25 +270,8 @@
         "correl": "",
         "expiry": "",
         "broker": "21cdba4a.be7146",
-        "x": 1490,
+        "x": 1410,
         "y": 500,
-        "wires": []
-    },
-    {
-        "id": "5d5a84b11603dec7",
-        "type": "debug",
-        "z": "ab127697727f4707",
-        "name": "Ts error",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "jsonata",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1760,
-        "y": 240,
         "wires": []
     },
     {
@@ -300,7 +285,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
+        "x": 1410,
         "y": 320,
         "wires": [
             [
@@ -322,7 +307,7 @@
         "correl": "",
         "expiry": "",
         "broker": "21cdba4a.be7146",
-        "x": 1770,
+        "x": 1650,
         "y": 320,
         "wires": []
     },
@@ -383,10 +368,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1430,
+        "x": 1390,
         "y": 240,
         "wires": [
             [
+                "9c11ce9fa10784c9",
                 "5d5a84b11603dec7"
             ]
         ]
@@ -404,30 +390,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 410,
+        "x": 390,
         "y": 160,
         "wires": [
             [
-                "83a6dc0483a075e9",
-                "3cd559a44e230cd0"
+                "7873198b56215fc2",
+                "730318cef3d59ede"
             ]
-        ]
-    },
-    {
-        "id": "22f0c853e0c1822a",
-        "type": "function",
-        "z": "ab127697727f4707",
-        "name": "function 1",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1480,
-        "y": 600,
-        "wires": [
-            []
         ]
     },
     {
@@ -435,7 +404,7 @@
         "type": "debug",
         "z": "ab127697727f4707",
         "name": "temperature",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -443,44 +412,9 @@
         "targetType": "jsonata",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1750,
+        "x": 1390,
         "y": 60,
         "wires": []
-    },
-    {
-        "id": "3cd559a44e230cd0",
-        "type": "ui_switch",
-        "z": "ab127697727f4707",
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "aad8a7679b60dc3d",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "payload",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 670,
-        "y": 160,
-        "wires": [
-            [
-                "e597eb241d16a92a",
-                "a017f60bd30202f6"
-            ]
-        ]
     },
     {
         "id": "856cbed793adb591",
@@ -499,11 +433,12 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 450,
+        "x": 430,
         "y": 240,
         "wires": [
             [
-                "3cd559a44e230cd0"
+                "7873198b56215fc2",
+                "730318cef3d59ede"
             ]
         ]
     },
@@ -524,11 +459,12 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 450,
+        "x": 430,
         "y": 80,
         "wires": [
             [
-                "3cd559a44e230cd0"
+                "7873198b56215fc2",
+                "730318cef3d59ede"
             ]
         ]
     },
@@ -537,7 +473,7 @@
         "type": "debug",
         "z": "ab127697727f4707",
         "name": "start",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -545,9 +481,126 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 80,
+        "x": 950,
+        "y": 60,
         "wires": []
+    },
+    {
+        "id": "9c11ce9fa10784c9",
+        "type": "mqtt out",
+        "z": "ab127697727f4707",
+        "name": "",
+        "topic": "group8/tserror",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "21cdba4a.be7146",
+        "x": 1660,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5d5a84b11603dec7",
+        "type": "debug",
+        "z": "ab127697727f4707",
+        "name": "Ts error",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1640,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6b09b99e56481483",
+        "type": "inject",
+        "z": "ab127697727f4707",
+        "name": "try",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 670,
+        "y": 560,
+        "wires": [
+            [
+                "175a4a2fc726ac4c",
+                "20542ce8c6114814",
+                "63479bfe3f8fb4ea",
+                "45c1ae5fe4afe985"
+            ]
+        ]
+    },
+    {
+        "id": "7873198b56215fc2",
+        "type": "trigger",
+        "z": "ab127697727f4707",
+        "name": "",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "false",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 680,
+        "y": 120,
+        "wires": [
+            [
+                "e597eb241d16a92a",
+                "a017f60bd30202f6",
+                "83a6dc0483a075e9"
+            ]
+        ]
+    },
+    {
+        "id": "730318cef3d59ede",
+        "type": "trigger",
+        "z": "ab127697727f4707",
+        "name": "",
+        "op1": "false",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "true",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "e597eb241d16a92a",
+                "a017f60bd30202f6",
+                "83a6dc0483a075e9"
+            ]
+        ]
     },
     {
         "id": "b43680920fc55232",
@@ -669,25 +722,5 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
-    },
-    {
-        "id": "aad8a7679b60dc3d",
-        "type": "ui_group",
-        "name": "TEAM 5",
-        "tab": "446ced7dd7f5d29f",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "446ced7dd7f5d29f",
-        "type": "ui_tab",
-        "name": "TEAM 5",
-        "icon": "dashboard",
-        "order": 4,
-        "disabled": false,
-        "hidden": false
     }
 ]

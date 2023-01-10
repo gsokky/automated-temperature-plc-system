@@ -90,11 +90,29 @@ class inteface:
         self.topics = []
 
         for j,(key,i) in enumerate(self.server.topics.items()):
+            if key == "group8/start":
+                color = "#AAAAAA"
+                value = 1
+                self.show_start = tk.IntVar()
+                button2 = tk.Checkbutton(self.scroll_frame,
+                    text = "", 
+                    variable = self.show_start,
+                    bg = color,
+                    onvalue = 1,
+                    offvalue = 0
+                    )
+                self.scroll_frame.window_create('end', window = button2)
+                self.scroll_frame.insert('end', '')
+            else:
+                color = "#FFFFFF"
+                value = 0
             var = tk.IntVar()
             button = tk.Checkbutton(self.scroll_frame,
                     text = key, 
                     variable = var,
-                    bg = "#FFFFFF"
+                    bg = color,
+                    onvalue = 1,
+                    offvalue = value
                     )
             if(i):
                 button.select()
@@ -103,6 +121,7 @@ class inteface:
 
             self.scroll_frame.window_create('end', window = button)
             self.scroll_frame.insert('end', '\n')
+
         self.scroll_frame.config(state=tk.DISABLED)
         
         
@@ -115,7 +134,11 @@ class inteface:
 
 
     def delete_topics(self):
+        
         topic = self.text_topic_add_delete.get("1.0",'end-1c')
+        if(topic == "group8/start"):
+            return
+
         self.server.topics.pop(topic)
 
         self.fill_scroll_frame()
@@ -151,7 +174,6 @@ class inteface:
     def start_stop(self):
         
         if(not self.start):
-            self.start = not self.start
             self.server.loop_start()
             self.server.publish("group8/start_system","true")
         else:
