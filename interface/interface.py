@@ -6,10 +6,13 @@ from tkinter.scrolledtext import ScrolledText
 class inteface:
     def __init__(self):
         self.start = 0
+        
 
         self.root = tk.Tk()
         self.root.title("interface")
         self.root.geometry("640x640")
+
+        self.show_start = tk.IntVar()
 
         self.canvas = tk.Canvas(self.root)
         self.canvas.pack(anchor = tk.NW,fill="x")
@@ -93,7 +96,6 @@ class inteface:
             if key == "group8/start":
                 color = "#AAAAAA"
                 value = 1
-                self.show_start = tk.IntVar()
                 button2 = tk.Checkbutton(self.scroll_frame,
                     text = "", 
                     variable = self.show_start,
